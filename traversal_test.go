@@ -10,6 +10,13 @@ func TestFind(t *testing.T) {
 	assertLength(t, sel.Nodes, 9)
 }
 
+func TestExists(t *testing.T) {
+	exists := Doc().Exists("div.row-fluid")
+	if !exists {
+		t.Error("Expected div to exist")
+	}
+}
+
 func TestFindRollback(t *testing.T) {
 	sel := Doc().Find("div.row-fluid")
 	sel2 := sel.Find("a").End()

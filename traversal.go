@@ -56,6 +56,11 @@ func (s *Selection) FindNodes(nodes ...*html.Node) *Selection {
 	}))
 }
 
+// Exists gives us a shortcut, to look for existence of certain nodes in the document
+func (s *Selection) Exists(selector string) bool {
+	return s.Find(selector).Length() > 0
+}
+
 // Contents gets the children of each element in the Selection,
 // including text and comment nodes. It returns a new Selection object
 // containing these elements.
